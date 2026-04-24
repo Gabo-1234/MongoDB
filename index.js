@@ -1,5 +1,5 @@
-const connectDB = require("./db/connect");
-const Student = require("./models/Student");
+const connectDB = require("./connect");
+const Student = require("./models/students");
 
 const run = async () => {
   await connectDB();
