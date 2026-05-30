@@ -6,33 +6,20 @@ const Course = require("./models/Courses");
 const app = express();
 
 app.get("/", async (req, res) => {
-  await Student.deleteMany();
-  await Course.deleteMany();
 
-  const math = await Course.create({
-    title: "Mathematics",
-    difficulty: "hard",
-    durationMonth: 3
+  await Student.deleteOne({ name: "Gabo" });
+
+ const History = await Course.create({
+    title: "History",
+    difficulty: "medium",
+    durationMonth: 4,
   });
 
-  const english = await Course.create({
-    title: "English",
-    difficulty: "easy",
-    durationMonth: 2
-  });
-
-  await Student.create({
-    name: "Demetre",
-    age: 20,
-    email: "demetre@mail.com",
-    courses: [math._id, english._id]
-  });
-
-  await Student.create({
-    name: "Bob",
-    age: 17,
-    email: "bob@mail.com",
-    courses: [english._id]
+  const Gabo = await Student.create({
+    name: "Gabo",
+    age: 14,
+    email: "gabo@mail.com",
+    courses: [History._id],
   });
 
   const students = await Student.find().populate("courses");
