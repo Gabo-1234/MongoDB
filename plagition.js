@@ -1,6 +1,6 @@
-const express = require("express");
-const connectDB = require("./connect");
-const User = require("./models/User");
+import express from "express";
+import connectDB from "./connect.js";
+import User from "./models/User.js";
 
 const app = express();
 app.use(express.json());

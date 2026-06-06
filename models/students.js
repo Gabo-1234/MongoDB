@@ -1,6 +1,6 @@
-const mong = require("mongoose");
+import mongoose from "mongoose";
 
-const studentSchema = new mong.Schema({
+const studentSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -32,12 +32,12 @@ const studentSchema = new mong.Schema({
   },
   courses: [
     {
-      type: mong.Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Course",
     },
   ],
 });
 
-const Student = mong.model("Student", studentSchema);
+const Student = mongoose.model("Student", studentSchema);
 
-module.exports = Student;
+export default Student;

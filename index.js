@@ -1,6 +1,6 @@
-const connectDB = require("./connect");
-const Student = require("./models/students");
-const Course = require("./models/Courses");
+import connectDB from "./connect.js";
+import Student from "./models/students.js";
+import Course from "./models/Courses.js";
 
 const run = async () => {
   await connectDB();
